@@ -2,8 +2,8 @@ ICM_DESIGN_13_14
 ================
 
 Grupo 12
-TSI - Fábio Almeida, Tiago Duarte, Hugo Santos
-DESIGN - Maria Amorim, Isabel Franco
+TSI - Fábio Almeida, Tiago Duarte, Hugo Santos.
+DESIGN - Maria Amorim, Isabel Franco.
 
 É uma aplicação do tipo loja onde se compra produtos para instituições ou organizações de solidariedade social.
 Cada instituição/organização define os produtos de que necessita controlando assim o que será doado para cada instituição.
