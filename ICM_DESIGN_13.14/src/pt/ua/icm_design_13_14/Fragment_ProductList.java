@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ import android.widget.TextView;
 public class Fragment_ProductList extends Fragment {
 
 	private static final String ARG_SECTION_NUMBER = "section_number";
-	private ArrayList<Product> products = new ArrayList<Product>();
+	public static ArrayList<Product> products = new ArrayList<Product>();
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class Fragment_ProductList extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
-		View v = inflater.inflate(R.layout.fragment_main, container, false);
+		View v = inflater.inflate(R.layout.fragment_productlist, container, false);
 		ArrayAdapter<Product> adapter = new MyListAdapter();
 		ListView listView = (ListView) v.findViewById(R.id.lstViewProducts);
 		listView.setAdapter(adapter);
@@ -56,26 +57,24 @@ public class Fragment_ProductList extends Fragment {
 	
 	private void loadListView(){
 		
-		
 		ArrayAdapter<Product> adapter = new MyListAdapter();
 	}
 
 	private void loadProductList(){
-		products.add(new Product("Produto 1",R.drawable.blueberries,1,10.2f,"Descrição Produto 1"));
-		products.add(new Product("Produto 2",R.drawable.carrot,1,10.2f,"Descrição Produto 2"));
-		products.add(new Product("Produto 3",R.drawable.coffee_machine,1,10.2f,"Descrição Produto 3"));
-		products.add(new Product("Produto 4",R.drawable.toast,1,10.2f,"Descrição Produto 4"));
-		products.add(new Product("Produto 5",R.drawable.veinctor_001,1,10.2f,"Descrição Produto 5"));
-		products.add(new Product("Produto 6",R.drawable.veinctor_002,1,10.2f,"Descrição Produto 6"));
-		products.add(new Product("Produto 7",R.drawable.veinctor_003,1,10.2f,"Descrição Produto 7"));
-		products.add(new Product("Produto 8",R.drawable.veinctor_005,1,10.2f,"Descrição Produto 8"));
-		
+		products.add(new Product("Máquina Café",R.drawable.coffee_machine,1,10.2f,"Descrição Máquina Café"));
+		products.add(new Product("Lata de Atum",R.drawable.veinctor_001,1,10.2f,"Descrição Lata de Atum"));
+		products.add(new Product("Água 0.5L",R.drawable.veinctor_002,1,10.2f,"Descrição Água 0.5L"));
+		products.add(new Product("Água 5L",R.drawable.veinctor_003,1,10.2f,"Descrição Água 5L"));
+		products.add(new Product("Hamburguer",R.drawable.hamburger,1,10.2f,"Descrição Hamburguer"));
+		products.add(new Product("Chá",R.drawable.veinctor_005,1,10.2f,"Descrição Chá"));
+		products.add(new Product("Pizza",R.drawable.pizza_slice,1,10.2f,"Descrição Pizza"));
+		products.add(new Product("Cenoura",R.drawable.carrot,1,.5f,"Descrição Cenoura"));
 	}
 	
 	private class MyListAdapter extends ArrayAdapter<Product>{
 
 		public MyListAdapter(){
-			super(getActivity(), R.layout.fragment_main, products);
+			super(getActivity(), R.layout.fragment_productlist, products);
 		}
 
 		@Override
@@ -108,10 +107,6 @@ public class Fragment_ProductList extends Fragment {
 			
 			TextView txtName = (TextView) itemView.findViewById(R.id.viewProduct);
 			txtName.setText(currentProduct.getName());
-			
-			
-			
-			//Find the view
 			
 			
 			return itemView;

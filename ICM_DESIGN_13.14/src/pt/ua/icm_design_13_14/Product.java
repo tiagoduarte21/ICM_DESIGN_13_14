@@ -18,7 +18,6 @@ public class Product {
 		this.description = description;
 	}
 	
-	
 	public String getName() {
 		return name;
 	}
@@ -49,10 +48,6 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
-	
-	
 	
 	
 }

@@ -27,9 +27,11 @@
             android:label="@string/title_activity_ex" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="pt.ua.icm_design_13_14.SettingsActivity"
+            android:label="@string/title_activity_settings" >
         </activity>
     </application>
 
