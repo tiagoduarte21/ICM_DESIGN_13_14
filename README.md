@@ -1,6 +1,10 @@
 ICM_DESIGN_13_14
 ================
 
+Grupo 12
+TSI - Fábio Almeida, Tiago Duarte, Hugo Santos
+DESIGN - Maria Amorim, Isabel Franco
+
 É uma aplicação do tipo loja onde se compra produtos para instituições ou organizações de solidariedade social.
 Cada instituição/organização define os produtos de que necessita controlando assim o que será doado para cada instituição.
 Existe também uma área de doação de objectos em que o utilizador pode tirar uma fotografia a um objecto que queira oferecer e se for de agrado para uma instituição, essa irá recolher o objecto (existe a possibilidade de aqui nas definições o utilizador poder optar por activar a localização por GPS sendo assim mais fácil para a aplicação localiza-lo).
