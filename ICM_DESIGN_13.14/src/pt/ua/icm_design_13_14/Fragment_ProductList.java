@@ -56,7 +56,8 @@ public class Fragment_ProductList extends Fragment {
 	
 	private void loadListView(){
 		
-		ArrayAdapter<Product> adapter = new MyListAdapter();
+		// ArrayAdapter<Product> adapter;
+		new MyListAdapter();
 	}
 
 	private void loadProductList(){

@@ -1,7 +1,6 @@
 package pt.ua.icm_design_13_14;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -12,8 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.VideoView;
 
 public class SplashActivity extends ActionBarActivity {
 
@@ -30,7 +28,7 @@ public class SplashActivity extends ActionBarActivity {
 		//		WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
 		setContentView(R.layout.activity_splash);
-
+		
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
 
@@ -45,7 +43,7 @@ public class SplashActivity extends ActionBarActivity {
 			public void run() {
 				// This method will be executed once the timer is over
 				// Start your app main activity
-				Intent i = new Intent(SplashActivity.this, MainActivity.class);
+				Intent i = new Intent(SplashActivity.this, FeedActivity.class);
 				startActivity(i);
 
 				// close this activity
@@ -62,6 +60,7 @@ public class SplashActivity extends ActionBarActivity {
 		getMenuInflater().inflate(R.menu.splash, menu);
 		return true;
 	}
+	
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -74,6 +73,7 @@ public class SplashActivity extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
 
 	/**
 	 * A placeholder fragment containing a simple view.

@@ -10,9 +10,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.LayoutParams;
 import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
@@ -39,6 +42,7 @@ public class MainActivity extends ActionBarActivity implements
 		// Set up the action bar.
 		final ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		//setupActionBar(); TODO
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.
@@ -70,6 +74,9 @@ public class MainActivity extends ActionBarActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+		
+		
+		
 
 	}
 
@@ -112,6 +119,22 @@ public class MainActivity extends ActionBarActivity implements
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 	}
+	
+	
+	private void setupActionBar() {
+	    ActionBar actionBar = getSupportActionBar();
+	    actionBar.setDisplayShowTitleEnabled(false);
+	    actionBar.setDisplayUseLogoEnabled(false);
+	    actionBar.setDisplayHomeAsUpEnabled(false);
+	    actionBar.setDisplayShowCustomEnabled(true);
+	    actionBar.setDisplayShowHomeEnabled(false);
+
+	    LayoutParams lp1 = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+	    View customNav = LayoutInflater.from(this).inflate(R.layout.actionbar, null); // layout which contains your button.
+
+	    actionBar.setCustomView(customNav, lp1);
+	}
+	
 
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to

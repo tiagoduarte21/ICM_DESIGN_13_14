@@ -15,5 +15,12 @@
     <string name="action_example">Example action</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_feed">FeedActivity</string>
+    
+	<!-- Navigation Drawer -->
+    <string name="nav_drawer_1">Feed de Notícias</string>
+    <string name="nav_drawer_2">A minha conta</string>
+    <string name="nav_drawer_3">Definições</string>
+    <string name="nav_drawer_4">Sobre nós</string>
 
 </resources>
