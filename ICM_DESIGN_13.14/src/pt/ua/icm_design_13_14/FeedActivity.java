@@ -35,7 +35,7 @@ public class FeedActivity extends ActionBarActivity implements
 	 */
 	private CharSequence mTitle;
 
-	public static ArrayList<News> news = new ArrayList<News>();
+	public static ArrayList<ClassNews> news = new ArrayList<ClassNews>();
 	
 
 	@Override
@@ -171,22 +171,22 @@ public class FeedActivity extends ActionBarActivity implements
 	
 	private void loadNewsList(){
 		
-		news.add(new News("Notícia 1",R.drawable.hd,"Descrição - Máquina Café"));
-		news.add(new News("Notícia 2",R.drawable.hd,"Descrição - Lata de Atum"));
-		news.add(new News("Notícia 3",R.drawable.hd,"Descrição - Água 0.5L"));
-		news.add(new News("Notícia 4",R.drawable.hd,"Descrição - Água 5L"));
-		news.add(new News("Notícia 5",R.drawable.hd,"Descrição - Hamburguer"));
-		news.add(new News("Notícia 6",R.drawable.hd,"Descrição - Chá"));
-		news.add(new News("Notícia 7",R.drawable.hd,"Descrição - Pizza"));
-		news.add(new News("Notícia 8",R.drawable.hd,"Descrição - Cenoura"));
+		news.add(new ClassNews("Notícia 1",R.drawable.hd,"Descrição - Máquina Café"));
+		news.add(new ClassNews("Notícia 2",R.drawable.hd,"Descrição - Lata de Atum"));
+		news.add(new ClassNews("Notícia 3",R.drawable.hd,"Descrição - Água 0.5L"));
+		news.add(new ClassNews("Notícia 4",R.drawable.hd,"Descrição - Água 5L"));
+		news.add(new ClassNews("Notícia 5",R.drawable.hd,"Descrição - Hamburguer"));
+		news.add(new ClassNews("Notícia 6",R.drawable.hd,"Descrição - Chá"));
+		news.add(new ClassNews("Notícia 7",R.drawable.hd,"Descrição - Pizza"));
+		news.add(new ClassNews("Notícia 8",R.drawable.hd,"Descrição - Cenoura"));
 		
 		
-		ArrayAdapter<News> adapter = new MyListAdapter();
+		ArrayAdapter<ClassNews> adapter = new MyListAdapter();
 		ListView listView = (ListView) findViewById(R.id.lstViewNews);
 		listView.setAdapter(adapter);
 	}
 	
-	private class MyListAdapter extends ArrayAdapter<News>{
+	private class MyListAdapter extends ArrayAdapter<ClassNews>{
 
 		public MyListAdapter(){
 			super(FeedActivity.this, R.layout.activity_feed, news);
@@ -204,7 +204,7 @@ public class FeedActivity extends ActionBarActivity implements
 			}
 			
 			//Find the product to work with
-			News currentNews = news.get(position);
+			ClassNews currentNews = news.get(position);
 			
 			TextView txtTitle = (TextView) itemView.findViewById(R.id.viewNewsTitle);
 			txtTitle.setText(currentNews.getTitle());

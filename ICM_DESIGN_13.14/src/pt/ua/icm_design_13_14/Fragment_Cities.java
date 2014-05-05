@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class Fragment_Cities extends Fragment{
 	
 	private static final String ARG_SECTION_NUMBER = "section_number";
-	private ArrayList<City> cities = new ArrayList<City>();
+	private ArrayList<ClassCity> cities = new ArrayList<ClassCity>();
 	
 
 
@@ -39,15 +39,15 @@ public class Fragment_Cities extends Fragment{
 	
 	private void loadCitiesList(){
 		
-		cities.add(new City("Aveiro",1000));
-		cities.add(new City("Porto",2000));
-		cities.add(new City("Coimbra",100));
-		cities.add(new City("Algarve",500));
-		cities.add(new City("Lisboa",300));
-		cities.add(new City("Braga",1000));
-		cities.add(new City("Guimarães",900));
-		cities.add(new City("Espinho",600));
-		cities.add(new City("Matosinhos",400));
+		cities.add(new ClassCity("Aveiro",1000));
+		cities.add(new ClassCity("Porto",2000));
+		cities.add(new ClassCity("Coimbra",100));
+		cities.add(new ClassCity("Algarve",500));
+		cities.add(new ClassCity("Lisboa",300));
+		cities.add(new ClassCity("Braga",1000));
+		cities.add(new ClassCity("Guimarães",900));
+		cities.add(new ClassCity("Espinho",600));
+		cities.add(new ClassCity("Matosinhos",400));
 		
 	}
 
@@ -57,14 +57,14 @@ public class Fragment_Cities extends Fragment{
 
 		View v = inflater.inflate(R.layout.fragment_cities, container, false);
 
-		ArrayAdapter<City> adapter = new MyListAdapter();
+		ArrayAdapter<ClassCity> adapter = new MyListAdapter();
 		ListView listView = (ListView) v.findViewById(R.id.lstViewCities);
 		listView.setAdapter(adapter);
 		
 		return v;
 	}
 	
-	private class MyListAdapter extends ArrayAdapter<City>{
+	private class MyListAdapter extends ArrayAdapter<ClassCity>{
 
 		public MyListAdapter(){
 			super(getActivity(), R.layout.fragment_cities, cities);
@@ -82,7 +82,7 @@ public class Fragment_Cities extends Fragment{
 			}
 			
 			//Find the product to work with
-			City currentCity = cities.get(position);
+			ClassCity currentCity = cities.get(position);
 			
 			
 			//ImageView imageView = (ImageView) itemView.findViewById(R.id.imageView1);

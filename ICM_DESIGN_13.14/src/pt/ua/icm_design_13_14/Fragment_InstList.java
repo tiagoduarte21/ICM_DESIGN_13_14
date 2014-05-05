@@ -17,7 +17,7 @@ import android.widget.TextView;
 public class Fragment_InstList extends Fragment{
 	
 	private static final String ARG_SECTION_NUMBER = "section_number";
-	private ArrayList<Institution> institutions = new ArrayList<Institution>();
+	private ArrayList<ClassInstitution> institutions = new ArrayList<ClassInstitution>();
 	
 	
 	@Override
@@ -45,7 +45,7 @@ public class Fragment_InstList extends Fragment{
 			Bundle savedInstanceState) {
 		
 		View v = inflater.inflate(R.layout.fragment_instlist, container, false);
-		ArrayAdapter<Institution> adapter = new MyListAdapter();
+		ArrayAdapter<ClassInstitution> adapter = new MyListAdapter();
 		ListView listView = (ListView) v.findViewById(R.id.lstViewInst);
 		listView.setAdapter(adapter);
 		
@@ -55,17 +55,17 @@ public class Fragment_InstList extends Fragment{
 
 	
 	private void loadInstList(){
-		institutions.add(new Institution("Centro Social",R.drawable.hd,"Aveiro",1996,"Descrição Máquina Café"));
-		institutions.add(new Institution("Associação",R.drawable.hd,"Aveiro",2000,"Descrição Lata de Atum"));
-		institutions.add(new Institution("Instituição",R.drawable.hd,"Aveiro",1960,"Descrição Água 0.5L"));
-		institutions.add(new Institution("Santa Casa",R.drawable.hd,"Aveiro",2010,"Descrição Água 5L"));
-		institutions.add(new Institution("APPACDM",R.drawable.hd,"Aveiro",2002,"Descrição Hamburguer"));
-		institutions.add(new Institution("Centro Cultural",R.drawable.hd,"Aveiro",1963,"Descrição Chá"));
-		institutions.add(new Institution("Liga dos Amigos",R.drawable.hd,"Aveiro",2001,"Descrição Pizza"));
-		institutions.add(new Institution("C.S.S.C.M.",R.drawable.hd,"Aveiro",2005,"Descrição Cenoura"));
+		institutions.add(new ClassInstitution("Centro Social",R.drawable.hd,"Aveiro",1996,"Descrição Máquina Café"));
+		institutions.add(new ClassInstitution("Associação",R.drawable.hd,"Aveiro",2000,"Descrição Lata de Atum"));
+		institutions.add(new ClassInstitution("Instituição",R.drawable.hd,"Aveiro",1960,"Descrição Água 0.5L"));
+		institutions.add(new ClassInstitution("Santa Casa",R.drawable.hd,"Aveiro",2010,"Descrição Água 5L"));
+		institutions.add(new ClassInstitution("APPACDM",R.drawable.hd,"Aveiro",2002,"Descrição Hamburguer"));
+		institutions.add(new ClassInstitution("Centro Cultural",R.drawable.hd,"Aveiro",1963,"Descrição Chá"));
+		institutions.add(new ClassInstitution("Liga dos Amigos",R.drawable.hd,"Aveiro",2001,"Descrição Pizza"));
+		institutions.add(new ClassInstitution("C.S.S.C.M.",R.drawable.hd,"Aveiro",2005,"Descrição Cenoura"));
 	}
 	
-	private class MyListAdapter extends ArrayAdapter<Institution>{
+	private class MyListAdapter extends ArrayAdapter<ClassInstitution>{
 
 		public MyListAdapter(){
 			super(getActivity(), R.layout.fragment_instlist, institutions);
@@ -83,7 +83,7 @@ public class Fragment_InstList extends Fragment{
 			}
 			
 			//Find the product to work with
-			Institution currentInst = institutions.get(position);
+			ClassInstitution currentInst = institutions.get(position);
 			
 			
 			ImageView imageView = (ImageView) itemView.findViewById(R.id.imageView1);

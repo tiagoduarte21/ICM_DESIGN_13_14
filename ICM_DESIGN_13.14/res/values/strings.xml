@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ICM_DESIGN_13.14</string>
+    <string name="app_name">Doar+</string>
     <string name="title_section1">Produtos</string>
     <string name="title_section2">Instituições</string>
     <string name="title_section3">Doar</string>
@@ -16,11 +16,32 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_feed">FeedActivity</string>
-    
-	<!-- Navigation Drawer -->
+    <string name="btn_donate">Quero Doar!</string>
+    <string name="news_feed">Feed de Notícias</string>
+
+    <!-- Navigation Drawer -->
     <string name="nav_drawer_1">Feed de Notícias</string>
     <string name="nav_drawer_2">A minha conta</string>
     <string name="nav_drawer_3">Definições</string>
     <string name="nav_drawer_4">Sobre nós</string>
+    <string name="title_activity_sign_up">Sign Up</string>
+
+    <!-- SignUp -->
+    <string name="signup_institution">Instituição</string>
+    <string name="signup_single">Individual</string>
+    <string name="signup_single_firstname">First name</string>
+    <string name="signup_single_lastname">Last name</string>
+    <string name="signup_single_email">Email</string>
+    <string name="signup_single_password">Password</string>
+    <string name="signup_single_anon">Anonimato</string>
+
+    <string-array name="cities">
+        <item>Aveiro</item>
+        <item>Porto</item>
+        <item>Coimbra</item>
+        <item>Lisboa</item>
+        <item>Algarve</item>
+        <item>Braga</item>
+    </string-array>
 
 </resources>
