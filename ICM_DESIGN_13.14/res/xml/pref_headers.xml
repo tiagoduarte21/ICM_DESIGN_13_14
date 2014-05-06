@@ -3,13 +3,13 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="pt.ua.icm_design_13_14.SettingsActivity$GeneralPreferenceFragment"
+        android:fragment="pt.ua.doarmais.SettingsActivity$GeneralPreferenceFragment"
         android:title="@string/pref_header_general" />
     <header
-        android:fragment="pt.ua.icm_design_13_14.SettingsActivity$NotificationPreferenceFragment"
+        android:fragment="pt.ua.doarmais.SettingsActivity$NotificationPreferenceFragment"
         android:title="@string/pref_header_notifications" />
     <header
-        android:fragment="pt.ua.icm_design_13_14.SettingsActivity$DataSyncPreferenceFragment"
+        android:fragment="pt.ua.doarmais.SettingsActivity$DataSyncPreferenceFragment"
         android:title="@string/pref_header_data_sync" />
 
 </preference-headers>

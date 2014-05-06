@@ -3,5 +3,5 @@
     android:id="@+id/pager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pt.ua.icm_design_13_14.SignUp" />
+    tools:context="pt.ua.doarmais.SignUp" />
 

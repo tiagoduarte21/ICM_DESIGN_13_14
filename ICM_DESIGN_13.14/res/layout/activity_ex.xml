@@ -4,7 +4,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pt.ua.icm_design_13_14.ExActivity" >
+    tools:context="pt.ua.doarmais.ExActivity" >
 
     <!--
          As the main content view, the view below consumes the entire
@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/navigation_drawer"
-        android:name="pt.ua.icm_design_13_14.NavigationDrawerFragment"
+        android:name="pt.ua.doarmais.NavigationDrawerFragment"
         android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start" />
