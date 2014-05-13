@@ -1,17 +1,21 @@
 package pt.ua.doarmais;
 
+import java.util.regex.Pattern;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class WelcomeActivity extends ActionBarActivity {
 
@@ -77,6 +81,15 @@ public class WelcomeActivity extends ActionBarActivity {
 					startActivity(in);
 				}
 			});
+			
+			
+			TextView txtWelcomeLogin = (TextView) rootView.findViewById(R.id.txtWelcomeLogin);
+			String text = "Já tem conta? Faça login!";
+			txtWelcomeLogin.setText(text);
+
+			Pattern pattern = Pattern.compile("login");
+			Linkify.addLinks(txtWelcomeLogin, pattern, "welcome-activity://");
+			
 			
 			return rootView;
 		}

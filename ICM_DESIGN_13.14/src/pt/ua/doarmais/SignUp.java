@@ -86,6 +86,13 @@ public class SignUp extends ActionBarActivity implements ActionBar.TabListener {
 		cd = new ConnectionDetector(getApplicationContext());
 
 		
+		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setDisplayShowCustomEnabled(false);
+		actionBar.setDisplayUseLogoEnabled(false);
+		actionBar.setDisplayShowHomeEnabled(false);
+		
+		//actionBar.hide();
+		
 
 	}
 

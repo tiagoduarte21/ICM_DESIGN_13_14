@@ -19,6 +19,13 @@
         <activity
             android:name="pt.ua.doarmais.Login"
             android:label="@string/app_name" >
+            <intent-filter>
+                <data android:host="login" android:scheme="welcome-activity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="pt.ua.doarmais" />
+            </intent-filter>
         </activity>
         <activity
             android:name="pt.ua.doarmais.ForgetParsePassword"
@@ -58,14 +65,6 @@
         <activity
             android:name="pt.ua.doarmais.WelcomeActivity"
             android:label="@string/title_activity_welcome" >
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <data android:scheme="pt.ua.doarmais" />
-            </intent-filter>
         </activity>
     </application>
-
 </manifest>
