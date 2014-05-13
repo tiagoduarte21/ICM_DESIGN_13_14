@@ -24,24 +24,66 @@
     <string name="nav_drawer_2">A minha conta</string>
     <string name="nav_drawer_3">Definições</string>
     <string name="nav_drawer_4">Sobre nós</string>
-    <string name="title_activity_sign_up">Sign Up</string>
+    <string name="title_activity_sign_up">Registrar</string>
 
     <!-- SignUp -->
     <string name="signup_institution">Instituição</string>
     <string name="signup_single">Individual</string>
-    <string name="signup_single_firstname">First name</string>
-    <string name="signup_single_lastname">Last name</string>
+    <string name="signup_single_firstname">Nome próprio</string>
+    <string name="signup_single_lastname">Apelido</string>
     <string name="signup_single_email">Email</string>
-    <string name="signup_single_password">Password</string>
+    <string name="signup_single_password">Palavra-passe</string>
+    <string name="signup_single_confirm_password">Confirmar palavra-passe</string>
     <string name="signup_single_anon">Anonimato</string>
+    <string name="signup_single_createaccount">Criar conta...</string>
+
+    <!-- Login -->
+    <string name="welcome_login">Já tem conta? Faça <a href="pt.ua.doarmais">login!</a></string>
+    
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Palavra-passe</string>
+    <string name="action_sign_in_short">Login</string>
+    <string name="orText">Ou</string>
+    <string name="action_register">Registe-se</string>
+    <string name="forget_password">Recuperar palavra-passe</string>
+    <!-- Strings related to login -->
+    <!-- TODO -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Palavra-passe</string>
+    <string name="action_sign_in_register"><b>Login</b> ou registrar</string>
+    <string name="menu_forgot_password">Recuperar palavra-passe</string>
+    <string name="login_progress_signing_in">A ligar&#8230;</string>
+    <string name="login_progress_password_email">A enviar email&#8230;</string>
+    <string name="error_invalid_email">Este email é invalido</string>
+    <string name="error_duplicate_email">Este email já foi usado</string>
+    <string name="error_duplicate_username">Este username já foi usado</string>
+    <string name="error_incorrect_password">A palavra-passe está incorreta</string>
+    <string name="error_invalid_password">Esta palavra-passe é demasiado curta</string>
+    <string name="error_invalid_confirm_password">As palavras-passe não são iguais</string>
+    <string name="error_field_required">Este campo é necessário</string>
 
     <string-array name="cities">
+        <item>Angra do Heroísmo</item>
         <item>Aveiro</item>
-        <item>Porto</item>
-        <item>Coimbra</item>
-        <item>Lisboa</item>
-        <item>Algarve</item>
+        <item>Beja</item>
         <item>Braga</item>
+        <item>Bragança</item>
+        <item>Castelo Branco</item>
+        <item>Coimbra</item>
+        <item>Faro</item>
+        <item>Funchal</item>
+        <item>Guarda</item>
+        <item>Horta</item>
+        <item>Lamego</item>
+        <item>Leiria</item>
+        <item>Lisboa</item>
+        <item>Ponta Delgada</item>
+        <item>Portalegre</item>
+        <item>Porto</item>
+        <item>Santarém</item>
+        <item>Setúbal</item>
     </string-array>
+
+    <string name="title_activity_welcome">WelcomeActivity</string>
 
 </resources>

@@ -1,7 +1,7 @@
 package pt.ua.doarmais;
 
 import java.util.Locale;
-import pt.ua.doarmais.R;
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -16,9 +16,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SignUp extends ActionBarActivity implements ActionBar.TabListener {
+
+	// flag for Internet connection status
+	Boolean isInternetPresent = false;
+	// Connection detector class
+	ConnectionDetector cd;
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -73,6 +81,12 @@ public class SignUp extends ActionBarActivity implements ActionBar.TabListener {
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+
+		// creating connection detector class instance
+		cd = new ConnectionDetector(getApplicationContext());
+
+		
+
 	}
 
 	@Override
@@ -154,7 +168,15 @@ public class SignUp extends ActionBarActivity implements ActionBar.TabListener {
 			return null;
 		}
 	}
-
 	
-
+	public void showToast(final String toast) {
+		runOnUiThread(new Runnable() {
+			public void run() {
+				Toast.makeText(SignUp.this, toast, Toast.LENGTH_SHORT)
+						.show();
+			}
+		});
+	}
+	
+	
 }

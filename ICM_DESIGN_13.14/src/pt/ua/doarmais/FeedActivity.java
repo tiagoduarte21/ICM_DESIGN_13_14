@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.DeleteCallback;
 import com.parse.FindCallback;
@@ -342,6 +343,15 @@ public class FeedActivity extends ActionBarActivity implements
 			// return super.getView(position, convertView, parent);
 		}
 
+	}
+	
+	public void showToast(final String toast) {
+		runOnUiThread(new Runnable() {
+			public void run() {
+				Toast.makeText(FeedActivity.this, toast, Toast.LENGTH_SHORT)
+						.show();
+			}
+		});
 	}
 
 }
