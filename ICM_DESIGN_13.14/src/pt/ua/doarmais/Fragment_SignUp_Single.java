@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -120,6 +121,8 @@ public class Fragment_SignUp_Single extends Fragment {
 			}
 		});
 
+		onCreateParse();
+		
 		return view;
 
 	}
@@ -195,6 +198,9 @@ public class Fragment_SignUp_Single extends Fragment {
 	private void signUp(String firstName, String lastName, String mUsername,
 			String mEmail, String mPassword, String city, boolean anon) {
 		// TODO Auto-generated method stub
+
+		
+
 		Toast.makeText(getActivity(), mUsername + " - " + mEmail,
 				Toast.LENGTH_SHORT).show();
 		ParseUser user = new ParseUser();
@@ -205,17 +211,17 @@ public class Fragment_SignUp_Single extends Fragment {
 		user.put("lastname", lastName);
 		user.put("anonymous", anon);
 
-		try {
-			ParseObject poCity = new ParseObject("City");
-			ParseQuery<ParseObject> query = ParseQuery.getQuery("City");
-			query.whereEqualTo("name", city);
-			List<ParseObject> result;
-			result = query.find();
-			String cityObjectID = result.get(0).getObjectId().toString();
-			user.put("city", city);
-		} catch (ParseException e1) {
-			signUpMsg("Error in City Query");
-		}
+//		try {
+//			ParseObject poCity = new ParseObject("City");
+//			ParseQuery<ParseObject> query = ParseQuery.getQuery("City");
+//			query.whereEqualTo("name", city);
+//			List<ParseObject> result;
+//			result = query.find();
+//			String cityObjectID = result.get(0).getObjectId().toString();
+//			user.put("city", city);
+//		} catch (ParseException e1) {
+//			signUpMsg("Error in City Query");
+//		}
 
 		user.signUpInBackground(new SignUpCallback() {
 			public void done(ParseException e) {
@@ -272,6 +278,16 @@ public class Fragment_SignUp_Single extends Fragment {
 		alertDialog.show();
 	}
 
-	
-	
+	public void onCreateParse() {
+
+		try {
+			// TODO
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		Parse.initialize(getActivity(),
+				"wecAmPMM0H03a3HPTcpoY7AW2nKfFGtxgCOidzUo",
+				"iquq2rrkjV0XxfZbyyVXVahaQfeR0RzSRTRpkTWz");
+	}
+
 }

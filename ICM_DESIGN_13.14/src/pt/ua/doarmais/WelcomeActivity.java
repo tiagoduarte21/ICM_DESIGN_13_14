@@ -88,7 +88,7 @@ public class WelcomeActivity extends ActionBarActivity {
 			txtWelcomeLogin.setText(text);
 
 			Pattern pattern = Pattern.compile("login");
-			Linkify.addLinks(txtWelcomeLogin, pattern, "welcome-activity://");
+			Linkify.addLinks(txtWelcomeLogin, pattern, "login-activity://");
 			
 			
 			return rootView;
