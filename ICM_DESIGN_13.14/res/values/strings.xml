@@ -39,7 +39,6 @@
 
     <!-- Login -->
     <string name="welcome_login">Já tem conta? Faça <a href="pt.ua.doarmais">login!</a></string>
-    
     <string name="hint_email">Email</string>
     <string name="hint_password">Palavra-passe</string>
     <string name="action_sign_in_short">Login</string>
@@ -61,6 +60,11 @@
     <string name="error_invalid_password">Esta palavra-passe é demasiado curta</string>
     <string name="error_invalid_confirm_password">As palavras-passe não são iguais</string>
     <string name="error_field_required">Este campo é necessário</string>
+    
+    <!-- Strings related to DonationList -->
+    <string name="donationlist_1">Produtos</string>
+    <string name="donationlist_2">Instituições</string>
+    <string name="donationlist_3">Distritos</string>
 
     <string-array name="cities">
         <item>Angra do Heroísmo</item>
@@ -85,5 +89,6 @@
     </string-array>
 
     <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="title_activity_donation_list">DonationList</string>
 
 </resources>

@@ -5,6 +5,8 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
@@ -17,13 +19,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.DeleteCallback;
 import com.parse.FindCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -69,14 +72,34 @@ public class FeedActivity extends ActionBarActivity implements
 		 * return v;
 		 */
 
-		loadNewsList();
-
 		Parse.initialize(this, "wecAmPMM0H03a3HPTcpoY7AW2nKfFGtxgCOidzUo",
 				"iquq2rrkjV0XxfZbyyVXVahaQfeR0RzSRTRpkTWz");
 
-		ParseObject testObject = new ParseObject("TestObject");
-		testObject.put("foo", "bar");
-		testObject.saveInBackground();
+		news.clear();
+
+		//LoadNewsTask loadNews = new LoadNewsTask();
+		//loadNews.execute();
+		
+		loadNewsList();
+		
+		
+
+		Button btnDonate = (Button) findViewById(R.id.btnDonate);
+
+		btnDonate.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent in = new Intent(FeedActivity.this, DonationList.class);
+				startActivity(in);
+			}
+		});
+
+
+		// ParseObject testObject = new ParseObject("TestObject");
+		// testObject.put("foo", "bar");
+		// testObject.saveInBackground();
 
 		// PushService.setDefaultPushCallback(this, FeedActivity.class);
 		// ParseInstallation.getCurrentInstallation().saveInBackground();
@@ -166,6 +189,7 @@ public class FeedActivity extends ActionBarActivity implements
 			// TextView textView = (TextView)
 			// rootView.findViewById(R.id.section_label);
 			// textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+			
 
 			return rootView;
 
@@ -179,28 +203,144 @@ public class FeedActivity extends ActionBarActivity implements
 		}
 	}
 
+	private class LoadNewsTask extends AsyncTask<String, Void, String> {
+		
+		ArrayAdapter<ClassNews> adapter;
+		
+		@Override
+		protected String doInBackground(String... params) {
+			// this is where you implement your long-running task
+			//return doSomeLongOperation();
+			
+			final String NEWS_LABEL = "News";
+
+			ParseQuery<ParseObject> query = ParseQuery.getQuery(NEWS_LABEL);
+
+			// Retrieve the most recent ones
+			query.orderByDescending("createdAt");
+
+			// Only retrieve the last ten
+			query.setLimit(10);
+
+			// Include the post data with each comment
+			// query.include("title");
+			// query.include("image");
+			// query.include("description");
+
+			query.findInBackground(new FindCallback<ParseObject>() {
+				public void done(List<ParseObject> newsList, ParseException e) {
+					// newsList now contains the last ten news, and the "post"
+					// field has been populated. For example:
+
+					if (newsList != null) {
+						for (ParseObject row : newsList) {
+							// This does not require a network access.
+
+							// ParseObject title = row.getParseObject("title");
+							// ParseObject image = row.getParseObject("image");
+							// ParseObject description =
+							// row.getParseObject("description");
+
+							news.add(new ClassNews(row.getString("title"), row
+									.getInt("image"), row.getString("description")));
+
+							// title.delete();
+
+							// Log.d("post", "retrieved a related post");
+						}
+					}
+				}
+			});
+			
+			
+			adapter = new MyListAdapter();
+
+			// // Query for the latest objects from Parse.
+			// query.findInBackground(new FindCallback<ParseObject>() {
+			// public void done(final List<ParseObject> newsList, ParseException e)
+			// {
+			// if (e != null) {
+			// // There was an error or the network wasn't available.
+			// return;
+			// }
+			//
+			// // Release any objects previously pinned for this query.
+			// ParseObject.unpinAllInBackground(NEWS_LABEL, newsList, new
+			// DeleteCallback() {
+			// public void done(ParseException e) {
+			// if (e != null) {
+			// // There was some error.
+			// return;
+			// }
+			//
+			// // Add the latest results for this query to the cache.
+			// ParseObject.pinAllInBackground(NEWS_LABEL, newsList);
+			// }
+			// });
+			// }
+			// });
+
+			// ParseQuery<ParseObject> query = ParseQuery.getQuery("News");
+			// query.include("title");w(, new GetCallback<ParseObject>() {
+			// public void done(ParseObject object, ParseException e) {
+			// if (e == null) {
+			// // object will be your game score
+			//
+			//
+			// String title = object.getString("title");
+			// int image = object.getInt("image");
+			// String description = object.getString("description");
+			//
+			// news.add(new ClassNews(title,image,description));
+			//
+			// } else {
+			// // something went wrong
+			// }
+			// }
+			// });
+
+			
+			
+			return "";
+			
+			
+			
+		}
+
+		@Override
+		public void onPostExecute(String result) {
+			// here, you can update, and manipulate, your views
+			//updateUiWithResult(result);
+			
+			//ArrayAdapter<ClassNews> adapter = new MyListAdapter();
+			ListView listView = (ListView) findViewById(R.id.lstViewNews);
+			listView.setAdapter(adapter);
+			
+		}
+	}
+
 	private void populateNews() {
 		saveNews("Notícia 1", R.drawable.hd, "Descrição - Máquina Café");
-		SystemClock.sleep(1000);
+		SystemClock.sleep(350);
 		saveNews("Notícia 2", R.drawable.hd, "Descrição - Lata de Atum");
-		SystemClock.sleep(1000);
+		SystemClock.sleep(350);
 		saveNews("Notícia 3", R.drawable.hd, "Descrição - Água 0.5L");
-		SystemClock.sleep(1000);
+		SystemClock.sleep(350);
 		saveNews("Notícia 4", R.drawable.hd, "Descrição - Água 5L");
-		SystemClock.sleep(1000);
+		SystemClock.sleep(350);
 		saveNews("Notícia 5", R.drawable.hd, "Descrição - Hamburguer");
-		SystemClock.sleep(1000);
+		SystemClock.sleep(350);
 		saveNews("Notícia 6", R.drawable.hd, "Descrição - Chá");
-		SystemClock.sleep(1000);
+		SystemClock.sleep(350);
 		saveNews("Notícia 7", R.drawable.hd, "Descrição - Pizza");
-		SystemClock.sleep(1000);
+		SystemClock.sleep(350);
 		saveNews("Notícia 8", R.drawable.hd, "Descrição - Cenoura");
 	}
 
 	private void saveNews(String title, int image, String description) {
 
-		Parse.initialize(this, "wecAmPMM0H03a3HPTcpoY7AW2nKfFGtxgCOidzUo",
-				"iquq2rrkjV0XxfZbyyVXVahaQfeR0RzSRTRpkTWz");
+		// Parse.initialize(this, "wecAmPMM0H03a3HPTcpoY7AW2nKfFGtxgCOidzUo",
+		// "iquq2rrkjV0XxfZbyyVXVahaQfeR0RzSRTRpkTWz");
 
 		ParseObject parseObject = new ParseObject("News");
 
@@ -213,14 +353,12 @@ public class FeedActivity extends ActionBarActivity implements
 
 	private void loadNewsList() {
 
-		Parse.initialize(this, "wecAmPMM0H03a3HPTcpoY7AW2nKfFGtxgCOidzUo",
-				"iquq2rrkjV0XxfZbyyVXVahaQfeR0RzSRTRpkTWz");
+		// Parse.initialize(this,
+		// "wecAmPMM0H03a3HPTcpoY7AW2nKfFGtxgCOidzUo","iquq2rrkjV0XxfZbyyVXVahaQfeR0RzSRTRpkTWz");
 
 		final String NEWS_LABEL = "News";
 
 		ParseQuery<ParseObject> query = ParseQuery.getQuery(NEWS_LABEL);
-		
-		
 
 		// Retrieve the most recent ones
 		query.orderByDescending("createdAt");
@@ -229,9 +367,9 @@ public class FeedActivity extends ActionBarActivity implements
 		query.setLimit(10);
 
 		// Include the post data with each comment
-		//query.include("title");
-		//query.include("image");
-		//query.include("description");
+		// query.include("title");
+		// query.include("image");
+		// query.include("description");
 
 		query.findInBackground(new FindCallback<ParseObject>() {
 			public void done(List<ParseObject> newsList, ParseException e) {
@@ -242,12 +380,13 @@ public class FeedActivity extends ActionBarActivity implements
 					for (ParseObject row : newsList) {
 						// This does not require a network access.
 
-						//ParseObject title = row.getParseObject("title");
-						//ParseObject image = row.getParseObject("image");
-						//ParseObject description = row.getParseObject("description");
-						
-						news.add(new ClassNews(row.getString("title"), row.getInt("image"), row.getString("description")));
+						// ParseObject title = row.getParseObject("title");
+						// ParseObject image = row.getParseObject("image");
+						// ParseObject description =
+						// row.getParseObject("description");
 
+						news.add(new ClassNews(row.getString("title"), row
+								.getInt("image"), row.getString("description")));
 
 						// title.delete();
 
@@ -344,7 +483,7 @@ public class FeedActivity extends ActionBarActivity implements
 		}
 
 	}
-	
+
 	public void showToast(final String toast) {
 		runOnUiThread(new Runnable() {
 			public void run() {

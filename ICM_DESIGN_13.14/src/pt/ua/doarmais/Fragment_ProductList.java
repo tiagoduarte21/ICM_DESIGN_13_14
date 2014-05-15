@@ -34,7 +34,7 @@ public class Fragment_ProductList extends Fragment {
 		Bundle args = new Bundle();
 		args.putInt(ARG_SECTION_NUMBER, sectionNumber);
 		fragment.setArguments(args);
-		return fragment;
+		return fragment; 
 	}
 
 	
