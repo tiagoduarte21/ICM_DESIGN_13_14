@@ -1,4 +1,4 @@
-package pt.ua.doarmais;
+package pt.ua.querodoar;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -16,8 +16,10 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.text.TextUtils;
+
 import java.util.List;
-import pt.ua.doarmais.R;
+
+import pt.ua.querodoar.R;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

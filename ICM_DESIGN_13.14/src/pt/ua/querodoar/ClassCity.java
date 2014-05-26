@@ -1,4 +1,4 @@
-package pt.ua.doarmais;
+package pt.ua.querodoar;
 
 public class ClassCity {
 	

@@ -1,7 +1,8 @@
-package pt.ua.doarmais;
+package pt.ua.querodoar;
 
 import java.util.ArrayList;
-import pt.ua.doarmais.R;
+
+import pt.ua.querodoar.R;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

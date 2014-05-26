@@ -1,4 +1,4 @@
-package pt.ua.doarmais;
+package pt.ua.querodoar;
 
 import java.util.ArrayList;
 import java.util.List;

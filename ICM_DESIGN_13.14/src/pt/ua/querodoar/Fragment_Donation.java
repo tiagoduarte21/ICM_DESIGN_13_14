@@ -1,4 +1,4 @@
-package pt.ua.doarmais;
+package pt.ua.querodoar;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import pt.ua.doarmais.R;
+import pt.ua.querodoar.R;
 
 public class Fragment_Donation extends Fragment {
 

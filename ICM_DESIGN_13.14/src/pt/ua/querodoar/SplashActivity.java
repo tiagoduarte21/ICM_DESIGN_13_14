@@ -1,48 +1,67 @@
-package pt.ua.doarmais;
-
-import java.util.regex.Pattern;
+package pt.ua.querodoar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.VideoView;
+import pt.ua.querodoar.R;
 
-public class WelcomeActivity extends ActionBarActivity {
+public class SplashActivity extends ActionBarActivity {
+
+	// Splash screen timer
+	private static int SPLASH_TIME_OUT = 3000;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_welcome);
+
+		//requestWindowFeature(Window.FEATURE_NO_TITLE);
+		//this.getWindow().setFlags(
+		//		WindowManager.LayoutParams.FLAG_FULLSCREEN,
+		//		WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
+		setContentView(R.layout.activity_splash);
+		
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.hide();
 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-		
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.hide();
-		
-		
-		
+
+		new Handler().postDelayed(new Runnable() {
+
+			@Override
+			public void run() {
+				// This method will be executed once the timer is over
+				// Start your app main activity
+				Intent i = new Intent(SplashActivity.this, FeedActivity.class); // WelcomeActivity.class);
+				startActivity(i);
+
+				// close this activity
+				finish();
+			}
+		}, SPLASH_TIME_OUT);
+
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.welcome, menu);
+		getMenuInflater().inflate(R.menu.splash, menu);
 		return true;
 	}
+	
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -55,6 +74,7 @@ public class WelcomeActivity extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
 
 	/**
 	 * A placeholder fragment containing a simple view.
@@ -67,28 +87,9 @@ public class WelcomeActivity extends ActionBarActivity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_welcome,
+			View rootView = inflater.inflate(R.layout.fragment_splash,
 					container, false);
 			
-			Button btnRegister = (Button) rootView.findViewById(R.id.btnRegister);
-			
-			btnRegister.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					Intent in = new Intent(getActivity(), SignUp.class);
-					startActivity(in);
-				}
-			});
-			
-			
-			TextView txtWelcomeLogin = (TextView) rootView.findViewById(R.id.txtWelcomeLogin);
-			String text = "Já tem conta? Faça login!";
-			txtWelcomeLogin.setText(text);
-
-			Pattern pattern = Pattern.compile("login");
-			Linkify.addLinks(txtWelcomeLogin, pattern, "login-activity://");
 			
 			
 			return rootView;

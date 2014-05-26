@@ -1,21 +1,16 @@
-package pt.ua.doarmais;
-
-import java.util.List;
-import java.util.Map;
+package pt.ua.querodoar;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import pt.ua.querodoar.R;
 
-public class Fragment_Donation_Institutions extends Fragment {
-	
+public class Fragment_News extends Fragment{
+
 	private static final String ARG_SECTION_NUMBER = "section_number";
 
-	
-	List<ClassInstitution> institutions;
-	Map<ClassInstitution,List<ClassProduct>> collectionMapInstProd;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -24,10 +19,9 @@ public class Fragment_Donation_Institutions extends Fragment {
 
 	}
 
-	public static Fragment_Donation_Institutions newInstance(int sectionNumber) {
-		Fragment_Donation_Institutions fragment = new Fragment_Donation_Institutions();
+	public static Fragment_News newInstance() {
+		Fragment_News fragment = new Fragment_News();
 		Bundle args = new Bundle();
-		args.putInt(ARG_SECTION_NUMBER, sectionNumber);
 		fragment.setArguments(args);
 		return fragment;
 	}
@@ -35,10 +29,11 @@ public class Fragment_Donation_Institutions extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-
-		View v = inflater.inflate(R.layout.fragment_donation_institutions, container, false);
-
+		View v = inflater.inflate(R.layout.fragment_news, container, false);
 		return v;
 	}
-
+	
 }
+
+
+

@@ -1,4 +1,4 @@
-package pt.ua.doarmais;
+package pt.ua.querodoar;
 
 import com.parse.ParseException;
 import com.parse.ParseUser;

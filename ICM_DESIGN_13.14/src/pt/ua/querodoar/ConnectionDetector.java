@@ -1,4 +1,4 @@
-package pt.ua.doarmais;
+package pt.ua.querodoar;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

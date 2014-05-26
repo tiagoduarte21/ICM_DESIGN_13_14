@@ -1,67 +1,50 @@
-package pt.ua.doarmais;
+package pt.ua.querodoar;
 
-public class ClassInstitution {
+public class ClassProduct {
 
-	//private int id;
 	private String name;
 	private int image;
-	private String location;
-	private int year;
+	private int instID;
+	private float price;
 	private String description;
-
-	public ClassInstitution(String name,int image, String location, int year,
+	
+	
+	public ClassProduct(String name, int image, int instID, float price,
 			String description) {
-		super();
-		//this.id = id;
 		this.name = name;
 		this.image = image;
-		this.location = location;
-		this.year = year;
+		this.instID = instID;
+		this.price = price;
 		this.description = description;
 	}
-
-	/*public int getId(){
-		return id;
-	}*/
-	
-	
 	
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	
 	public int getImage() {
 		return image;
 	}
-
 	public void setImage(int image) {
 		this.image = image;
 	}
-	public String getLocation() {
-		return location;
+	public int getInstID() {
+		return instID;
 	}
-
-	public void setLocation(String location) {
-		this.location = location;
+	public void setInstID(int instID) {
+		this.instID = instID;
 	}
-
-	public int getYear() {
-		return year;
+	public float getPrice() {
+		return price;
 	}
-
-	public void setYear(int year) {
-		this.year = year;
+	public void setPrice(float price) {
+		this.price = price;
 	}
-
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}

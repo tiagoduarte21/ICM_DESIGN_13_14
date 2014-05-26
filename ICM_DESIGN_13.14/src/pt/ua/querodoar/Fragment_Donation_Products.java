@@ -1,14 +1,13 @@
-package pt.ua.doarmais;
+package pt.ua.querodoar;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import pt.ua.doarmais.R;
 
-public class Fragment_News extends Fragment{
-
+public class Fragment_Donation_Products extends Fragment {
+	
 	private static final String ARG_SECTION_NUMBER = "section_number";
 
 
@@ -19,9 +18,10 @@ public class Fragment_News extends Fragment{
 
 	}
 
-	public static Fragment_News newInstance() {
-		Fragment_News fragment = new Fragment_News();
+	public static Fragment_Donation_Products newInstance(int sectionNumber) {
+		Fragment_Donation_Products fragment = new Fragment_Donation_Products();
 		Bundle args = new Bundle();
+		args.putInt(ARG_SECTION_NUMBER, sectionNumber);
 		fragment.setArguments(args);
 		return fragment;
 	}
@@ -29,11 +29,10 @@ public class Fragment_News extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_news, container, false);
+
+		View v = inflater.inflate(R.layout.fragment_donation_products, container, false);
+
 		return v;
 	}
-	
+
 }
-
-
-
