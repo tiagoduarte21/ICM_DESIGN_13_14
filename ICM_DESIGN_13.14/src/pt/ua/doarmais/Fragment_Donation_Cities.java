@@ -30,15 +30,12 @@ public class Fragment_Donation_Cities extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
+
 		createCityGroupList();
-		
+
 		createInstGroupList();
 
 		createCityInstCollection();
-		
-		
-		
 
 	}
 
@@ -98,9 +95,11 @@ public class Fragment_Donation_Cities extends Fragment {
 
 		View v = inflater.inflate(R.layout.fragment_donation_cities, container,
 				false);
-		
-		ExpandableListView expListView = (ExpandableListView) v.findViewById(R.id.elvInstitutionList);
-		final ExpandableCitiesListAdapter expListAdapter = new ExpandableCitiesListAdapter(getActivity(), cities, collectionMapCityInst);
+
+		ExpandableListView expListView = (ExpandableListView) v
+				.findViewById(R.id.elvInstitutionList);
+		final ExpandableCitiesListAdapter expListAdapter = new ExpandableCitiesListAdapter(
+				getActivity(), cities, collectionMapCityInst);
 		expListView.setAdapter(expListAdapter);
 
 		return v;
@@ -200,7 +199,8 @@ public class Fragment_Donation_Cities extends Fragment {
 			return groupPosition;
 		}
 
-		public View getGroupView(int groupPosition, boolean isExpanded,View convertView, ViewGroup parent) {
+		public View getGroupView(int groupPosition, boolean isExpanded,
+				View convertView, ViewGroup parent) {
 			ClassCity city = (ClassCity) getGroup(groupPosition);
 			if (convertView == null) {
 				LayoutInflater infalInflater = (LayoutInflater) context
@@ -218,7 +218,7 @@ public class Fragment_Donation_Cities extends Fragment {
 
 			viewExpCityName.setText(city.getName());
 			viewExpCityName.setTypeface(null, Typeface.BOLD);
-			//viewExpCityDescr.setText(city.getPoints());
+			// viewExpCityDescr.setText(city.getPoints());
 			// viewExpCityImage.setImageResource(city.getImage());
 
 			return convertView;
