@@ -17,6 +17,13 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.parse.FindCallback;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 public class Fragment_Donation_Cities extends Fragment {
 
@@ -31,21 +38,91 @@ public class Fragment_Donation_Cities extends Fragment {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
+		Parse.initialize(getActivity(), "wecAmPMM0H03a3HPTcpoY7AW2nKfFGtxgCOidzUo",
+				"iquq2rrkjV0XxfZbyyVXVahaQfeR0RzSRTRpkTWz");
+		
 		createCityGroupList();
-
-		createInstGroupList();
-
-		createCityInstCollection();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//createInstGroupList();
+		getInstitutions();
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
 	private void createCityGroupList() {
 		cities = new ArrayList<ClassCity>();
-		cities.add(new ClassCity("Aveiro", 1000));
-		cities.add(new ClassCity("Porto", 2000));
-		cities.add(new ClassCity("Coimbra", 1000));
-		cities.add(new ClassCity("Braga", 1100));
 
+		inst = new ArrayList<ClassInstitution>();
+		final String CITY_LABEL = "City";
+
+		ParseQuery<ParseObject> query = ParseQuery.getQuery(CITY_LABEL);
+
+		query.orderByDescending("name");
+
+		// cities.add(new ClassCity("Aveiro", 1000));
+		// cities.add(new ClassCity("Porto", 2000));
+		// cities.add(new ClassCity("Coimbra", 1000));
+		// cities.add(new ClassCity("Braga", 1100));
+
+		query.findInBackground(new FindCallback<ParseObject>() {
+			public void done(List<ParseObject> cityList, ParseException e) {
+				// newsList now contains the lasty ten news, and the "post"
+				// field has been populated. For example:
+
+				if (cityList != null) {
+					for (ParseObject row : cityList) {
+						// This does not require a network access.
+
+						// ParseObject title = row.getParseObject("title");
+						// ParseObject image = row.getParseObject("image");
+						// ParseObject description =
+						// row.getParseObject("description");
+
+						cities.add(new ClassCity(row.getString("objectId"), row
+								.getString("name"), 1));
+						
+						// title.delete();
+						//getInstitutions(row.getString("objectId"));
+						// Log.d("post", "retrieved a related post");
+					}
+				}
+
+			}
+		});
+
+	}
+
+	private void getInstitutions() {
+		// TODO Auto-generated method stub
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Institution");
+		//query.whereEqualTo("city", objectId);
+
+		query.findInBackground(new FindCallback<ParseObject>() {
+			public void done(List<ParseObject> instList, ParseException e) {
+				
+
+				if (instList != null) {
+					for (ParseObject row : instList) {
+						inst.add(new ClassInstitution(row.getString("name"),row.getInt("image"),
+								row.getString("city"), 1000, row.getString("description")));
+						showToast(row.getString("name"));
+					}
+				}
+				createCityInstCollection();
+			}
+
+		});
 	}
 
 	private void createInstGroupList() {
@@ -70,11 +147,11 @@ public class Fragment_Donation_Cities extends Fragment {
 
 			for (ClassInstitution in : inst) {
 
-				if (city.getName().equals(in.getLocation())) {
+				if (city.getObjectID().equals(in.getLocation())) {
 
 					childList.add(in);
-
 				}
+				showToast(city.getObjectID() + " " + in.getLocation());
 
 			}
 			collectionMapCityInst.put(city, childList);
@@ -231,7 +308,18 @@ public class Fragment_Donation_Cities extends Fragment {
 		public boolean isChildSelectable(int groupPosition, int childPosition) {
 			return true;
 		}
-
+		
+		
 	}
+	
+	public void showToast(final String toast) {
+		getActivity().runOnUiThread(new Runnable() {
+			public void run() {
+				Toast.makeText(getActivity(), toast, Toast.LENGTH_SHORT)
+						.show();
+			}
+		});
+	}
+	
 
 }

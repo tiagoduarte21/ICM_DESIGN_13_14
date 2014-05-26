@@ -40,15 +40,15 @@ public class Fragment_Cities extends Fragment{
 	
 	private void loadCitiesList(){
 		
-		cities.add(new ClassCity("Aveiro",1000));
-		cities.add(new ClassCity("Porto",2000));
-		cities.add(new ClassCity("Coimbra",100));
-		cities.add(new ClassCity("Algarve",500));
-		cities.add(new ClassCity("Lisboa",300));
-		cities.add(new ClassCity("Braga",1000));
-		cities.add(new ClassCity("Guimarães",900));
-		cities.add(new ClassCity("Espinho",600));
-		cities.add(new ClassCity("Matosinhos",400));
+//		cities.add(new ClassCity("Aveiro",1000));
+//		cities.add(new ClassCity("Porto",2000));
+//		cities.add(new ClassCity("Coimbra",100));
+//		cities.add(new ClassCity("Algarve",500));
+//		cities.add(new ClassCity("Lisboa",300));
+//		cities.add(new ClassCity("Braga",1000));
+//		cities.add(new ClassCity("Guimarães",900));
+//		cities.add(new ClassCity("Espinho",600));
+//		cities.add(new ClassCity("Matosinhos",400));
 		
 	}
 
